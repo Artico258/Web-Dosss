@@ -1,4 +1,4 @@
-* {
+* * {
   margin: 0;
   padding: 0;
   font-family: 'Dosis', sans-serif;
@@ -12,25 +12,20 @@ main {
     rgba(93, 52, 236, 1) 100.2%
   );
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  padding: 20px;
 }
 
-form {
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-  display: flex;
-  margin-bottom: 15px;
-}
-
-.mainCard {
-  width: 40vw;
+.formContainer {
+  width: 80vw;
   border-radius: 25px;
   background-color: #fff;
   padding: 25px;
+  margin-bottom: 20px;
 }
 
 .title {
@@ -46,7 +41,8 @@ form {
   padding: 10px;
   border: 1px solid #eee;
   outline: none;
-  width: 65%;
+  width: 100%;
+  margin-bottom: 10px;
 }
 
 .inputForm::placeholder {
@@ -64,64 +60,93 @@ form {
   color: #fff;
   border-radius: 5px;
   cursor: pointer;
+  width: 100%;
 }
 
-.cardsList {
+.contentContainer {
+  width: 80vw;
+  display: flex;
+  gap: 20px; /* Espacio entre la tabla y las cards */
+}
+
+.tableContainer {
+  flex: 2; /* La tabla ocupa más espacio */
+  border-radius: 25px;
+  background-color: #fff;
+  padding: 25px;
+}
+
+.tableContainer h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+table {
   width: 100%;
+  border-collapse: collapse;
+}
+
+table th, table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+table th {
+  background-color: #f8f9fa;
+  font-weight: bold;
+}
+
+.cardsContainer {
+  flex: 1; /* Las cards ocupan menos espacio */
+  height: 500px; /* Altura fija */
+  border-radius: 25px;
+  background-color: #fff;
+  padding: 25px;
+  overflow-y: auto; /* Scroll vertical */
+}
+
+.cardsContainer h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+#taskCards {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  overflow-y: scroll;
-  max-height: 60vh;
-  height: 60vh;
+  gap: 10px;
 }
 
-.card {
-  width: 90%;
+.taskCard {
   padding: 15px;
   box-shadow: 2px 4px 4px 4px rgba(71, 71, 71, 0.16);
+  border-radius: 8px;
+  background-color: #f8f9fa;
+}
+
+.taskCard p {
+  margin: 5px 0;
+}
+
+.actions {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-content: center;
-  margin: 5px 0px;
-  position: relative;
+  gap: 10px;
+  margin-top: 10px;
 }
 
-.task {
-  padding: 10px;
-}
-
-.icon {
+.actions button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
 }
 
-.icon:hover {
-  color: rgba(62, 161, 219, 1);
+.actions button.view {
+  background-color: #28a745;
+  color: #fff;
 }
 
-.completeIcon {
-  color: rgba(62, 161, 219, 1);
-}
-
-.trashIcon:hover {
-  color: #f00;
-}
-
-.deleteConfirmationPop {
-  position: relative;
-  background-color: rgba(255, 255, 255);
-  z-index: 99;
-  width: 100%;
-  top: -100px;
-  left: 0;
-}
-.deleteSpace {
-  position: relative;
-  width: 30%;
-}
-
-.noTasks {
-  font-size: 48px;
+.actions button.delete {
+  background-color: #dc3545;
+  color: #fff;
 }
