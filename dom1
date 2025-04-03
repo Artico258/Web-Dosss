@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="es">
+   <!DOCTYPE html><html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Evaluación DOM</title>
@@ -30,33 +30,5 @@
     
     addBtn.onclick = function() {
         var taskText = newItem.value.trim();
-        
-        if (taskText === "") {
-            alert("Por favor, ingresa una tarea antes de agregar.");
-            return;
-        }
-        
-        var newTask = document.createElement("li");
-        newTask.className = "item";
-        newTask.textContent = taskText;
-        
-        newTask.onclick = function() {
-            this.classList.toggle("relleno");
-        };
-        
-        taskList.appendChild(newTask);
-        
-        newItem.value = ""; // Limpiar el input
-    };
-    
-    var items = document.getElementsByClassName("item");
-    for (var i = 0; i < items.length; i++) {
-        items[i].onclick = function() {
-            this.classList.toggle("relleno");
-        };
-    }
-</script>
-
-</body>
-</html>
+     
 
