@@ -1,0 +1,100 @@
+   <!DOCTYPE html><html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Evaluación DOM</title>
+    <style>
+        .task { padding: 10px; margin: 5px; border: 1px solid #ccc; }
+        .relleno { background-color: yellow; }
+        .tachado { text-decoration: line-through; color: #999; }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h2>Lista de Tareas</h2>
+        <input type="text" id="newItem" placeholder="Nueva tarea">
+        <button id="addBtn">Agregar</button>
+        <ul id="taskList">
+            <li class="item">Tarea de ejemplo 1</li>
+            <li class="item">Tarea de ejemplo 2</li>
+        </ul><div id="controls">
+        <button id="toggleBtn">Tachar Último</button>
+        <button id="countBtn">Contar Items</button>
+    </div>
+    <div id="output"></div>
+</div>
+
+<script>
+    var addBtn = document.getElementById("addBtn");
+    var newItem = document.getElementById("newItem");
+    var taskList = document.getElementById("taskList");
+    
+    addBtn.onclick = function() {
+        var taskText = newItem.value.trim();<!DOCTYPE html><html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Evaluación DOM</title>
+    <style>
+        .task { padding: 10px; margin: 5px; border: 1px solid #ccc; }
+        .relleno { background-color: yellow; }
+        .tachado { text-decoration: line-through; color: #999; }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h2>Lista de Tareas</h2>
+        <input type="text" id="newItem" placeholder="Nueva tarea">
+        <button id="addBtn">Agregar</button>
+        <ul id="taskList">
+            <li class="item">Tarea de ejemplo 1</li>
+            <li class="item">Tarea de ejemplo 2</li>
+        </ul><div id="controls">
+        <button id="toggleBtn">Tachar Último</button>
+        <button id="countBtn">Contar Items</button>
+    </div>
+    <div id="output"></div>
+</div>
+
+<script>
+    var addBtn = document.getElementById("addBtn");
+    var newItem = document.getElementById("newItem");
+    var taskList = document.getElementById("taskList");
+    var toggleBtn = document.getElementById("toggleBtn");
+    
+    addBtn.onclick = function() {
+        var taskText = newItem.value.trim();
+        
+        if (taskText === "") {
+            alert("Por favor, ingresa una tarea antes de agregar.");
+            return;
+        }
+        
+        var newTask = document.createElement("li");
+        newTask.className = "item";
+        newTask.textContent = taskText;
+        
+        newTask.onclick = function() {
+            this.classList.toggle("relleno");
+        };
+        
+        taskList.appendChild(newTask);
+        
+        newItem.value = ""; // Limpiar el input
+    };
+    
+    var items = document.getElementsByClassName("item");
+    for (var i = 0; i < items.length; i++) {
+        items[i].onclick = function() {
+            this.classList.toggle("relleno");
+        };
+    }
+    
+    toggleBtn.onclick = function() {
+        var items = document.getElementsByClassName("item");
+        if (items.length > 0) {
+            items[items.length - 1].classList.toggle("tachado");
+        }
+    };
+</script>
+
+</body>
+</html>
